@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  AZS
+
+  Created by Паша Терехов on 01.01.2023.
+  
+*/
+
+// MARK: - MAPVIEW STRINGS
+"user_location_warning" = "Для корректной работы приложения необходимо разрешить использование геоданных";
+"user_go_to_settings" = "Перейти в настройки";
