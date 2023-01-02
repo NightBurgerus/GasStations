@@ -9,3 +9,8 @@
 // MARK: - MAPVIEW STRINGS
 "user_location_warning" = "For the application to work correctly, you must allow the use of geodata";
 "user_go_to_settings" = "Go to Settings";
+
+"gas_station_label" = "Gas station №";
+"gas_station_address" = "Address: ";
+"gas_station_phone_number" = "Phone: ";
+"gas_station_gasoline_price" = "Fuel cost";

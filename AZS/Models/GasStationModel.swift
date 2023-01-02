@@ -9,17 +9,16 @@ import Foundation
 import MapKit
 
 struct GasStation: Identifiable, Codable {
-    let id: UUID
+    let id: Int
     let address: String
     let latitude: Double
     let longitude: Double
     let phone: String
     let gasoline: Gasoline
-    let images: [String]
 }
 
 struct Gasoline: Codable {
-    let price: Dictionary<String, Int>
+    let price: Dictionary<String, Double>
 }
 
 extension GasStation {

@@ -12,6 +12,12 @@ class Controllers: ObservableObject {
     @Published var tabBarController: UITabBarController? = nil
     let animationDuration = 0.3
     
+    func configureTabBar() {
+        DispatchQueue.main.async {
+            self.tabBarController?.tabBar.backgroundColor = UIColor(named: "appBackground")
+        }
+    }
+    
     func hideTabBar(withoutAnimation: Bool = false) {
         guard let tabBar = tabBarController?.tabBar else {
             return
@@ -22,24 +28,26 @@ class Controllers: ObservableObject {
         }
         
         if !withoutAnimation {
-            withAnimation(.easeInOut(duration: animationDuration)) {
+            UIView.animate(withDuration: animationDuration) {
                 tabBar.frame.origin = CGPoint(x: 0, y: UIScreen.main.bounds.height)
             }
             
+            DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
+                tabBar.isHidden = true
+                // Для обновления safe area после скрытия таббара,
+                // необходимо явно изменить фрейм у таббара
+                
+                // Пояснение: оператор ! здесь можно использовать без
+                // проблем, потому что к этому моменту имеется переменная
+                // tabBar. Она берётся из контроллера, а если контроллера нет,
+                // то до этого блока программа не дойдёт.
+                let frame = self.tabBarController!.view.frame
+                self.tabBarController!.view.frame = frame.insetBy(dx: 1, dy: 1)
+                self.tabBarController!.view.frame = frame
+            }
+        } else {
             tabBar.isHidden = true
-            // Для обновления safe area после скрытия таббара,
-            // необходимо явно изменить фрейм у таббара
-            
-            // Пояснение: оператор ! здесь можно использовать без
-            // проблем, потому что к этому моменту имеется переменная
-            // tabBar. Она берётся из контроллера, а если контроллера нет,
-            // то до этого блока программа не дойдёт.
-            let frame = tabBarController!.view.frame
-            tabBarController!.view.frame = frame.insetBy(dx: 1, dy: 1)
-            tabBarController!.view.frame = frame
-            return
         }
-        tabBar.isHidden = true
     }
     
     func setTabBar(withoutAnimation: Bool = false) {
@@ -51,24 +59,19 @@ class Controllers: ObservableObject {
             return
         }
         
+        tabBar.isHidden = false
         if !withoutAnimation {
-            withAnimation(.easeInOut(duration: animationDuration)) {
+            tabBar.frame.origin = CGPoint(x: 0, y: UIScreen.main.bounds.height)
+            UIView.animate(withDuration: animationDuration) {
                 tabBar.frame.origin = CGPoint(x: 0, y: UIScreen.main.bounds.height - tabBar.frame.height)
             }
-            
-            tabBar.isHidden = false
-            // Для обновления safe area после скрытия таббара,
-            // необходимо явно изменить фрейм у таббара
-            
-            // Пояснение: оператор ! здесь можно использовать без
-            // проблем, потому что к этому моменту имеется переменная
-            // tabBar. Она берётся из контроллера, а если контроллера нет,
-            // то до этого блока программа не дойдёт.
-            let frame = tabBarController!.view.frame
-            tabBarController!.view.frame = frame.insetBy(dx: 1, dy: 1)
-            tabBarController!.view.frame = frame
-            return
+        } else {
+            tabBar.frame.origin = CGPoint(x: 0, y: UIScreen.main.bounds.height - tabBar.frame.height)
         }
-        tabBar.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
+            let frame = self.tabBarController!.view.frame
+            self.tabBarController!.view.frame = frame.insetBy(dx: 1, dy: 1)
+            self.tabBarController!.view.frame = frame
+        }
     }
 }

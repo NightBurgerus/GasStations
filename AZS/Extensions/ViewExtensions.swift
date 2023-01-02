@@ -28,4 +28,18 @@ extension View {
             customize(tabBarController)
         })
     }
+    
+    @ViewBuilder func optionalFrame(width: CGFloat? = nil, height: CGFloat? = nil) -> some View {
+        if width != nil || height != nil {
+            if width != nil && height == nil {
+                self.frame(width: width!)
+            } else if width == nil && height != nil {
+                self.frame(height: height!)
+            } else {
+                self.frame(width: width, height: height!)
+            }
+        } else {
+            self
+        }
+    }
 }

@@ -13,10 +13,12 @@ struct GasStationView: View {
     
     var body: some View {
         ZStack {
-            ColoredCircle
-            StationIcon.offset(y: -11)
+            Group {
+                ColoredCircle
+                StationIcon
+            }
         }
-        .offset(y: -22)
+        .contentShape(Rectangle())
         .onAppear {
             configureView()
         }
@@ -32,21 +34,22 @@ struct GasStationView: View {
     private var StationIcon: some View {
         Group {
             if userInterfaceStyle == ColorScheme.dark {
-                return Res.images.gasPistolWhite
+                Res.images.gasPistolWhite
             } else {
-                return Res.images.gasPistolBlack
+                Res.images.gasPistolBlack
             }
-        }.frame(width: 30, height: 30)
+        }.frame(width: 30, height: 30).offset(y: -11)
     }
     
     private var ColoredCircle: some View {
         VStack(spacing: 0) {
-            Circle()
-                .fill(colorScheme == .dark ? Res.colors.darkGray : Res.colors.lightGray)
-                .overlay(Circle().stroke(
+            ZStack {
+                Circle()
+                    .fill(colorScheme == .dark ? Res.colors.darkGray : Res.colors.lightGray)
+                Circle().stroke(
                     colorScheme == .dark ? Color.white : Color.black, lineWidth: 4)
-                )
+            }
             Triangle(width: 30, height: 20, color: colorScheme == .dark ? Color.white : Color.black).offset(y: -2)
-        }.frame(width: 50, height: 70)
+        }.frame(width: 50, height: 70).contentShape(Rectangle())
     }
 }

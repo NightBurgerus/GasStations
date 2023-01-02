@@ -9,3 +9,8 @@
 // MARK: - MAPVIEW STRINGS
 "user_location_warning" = "Для корректной работы приложения необходимо разрешить использование геоданных";
 "user_go_to_settings" = "Перейти в настройки";
+
+"gas_station_label" = "Автозаправочная станция №";
+"gas_station_address" = "Адрес: ";
+"gas_station_phone_number" = "Телефон: ";
+"gas_station_gasoline_price" = "Стоимость топлива";
