@@ -24,6 +24,7 @@
 		C0D1AFD02962EECD00BFC4A9 /* Tooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1AFCF2962EECD00BFC4A9 /* Tooltip.swift */; };
 		C0D1AFD22962F1B500BFC4A9 /* Introspection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1AFD12962F1B500BFC4A9 /* Introspection.swift */; };
 		C0D1AFD42962F8FC00BFC4A9 /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1AFD32962F8FC00BFC4A9 /* Controllers.swift */; };
+		C0D1AFD6296446DE00BFC4A9 /* ProfileWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1AFD5296446DE00BFC4A9 /* ProfileWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		C0D1AFCF2962EECD00BFC4A9 /* Tooltip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tooltip.swift; sourceTree = "<group>"; };
 		C0D1AFD12962F1B500BFC4A9 /* Introspection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Introspection.swift; sourceTree = "<group>"; };
 		C0D1AFD32962F8FC00BFC4A9 /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
+		C0D1AFD5296446DE00BFC4A9 /* ProfileWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		C0D1AFA32961A32400BFC4A9 /* ProfileViews */ = {
 			isa = PBXGroup;
 			children = (
+				C0D1AFD5296446DE00BFC4A9 /* ProfileWrapper.swift */,
 			);
 			path = ProfileViews;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				C0D1AFCE2962E71600BFC4A9 /* ViewExtensions.swift in Sources */,
 				C0D1AFC92961C70000BFC4A9 /* ColoredImage.swift in Sources */,
+				C0D1AFD6296446DE00BFC4A9 /* ProfileWrapper.swift in Sources */,
 				C0D1AFC72961C62100BFC4A9 /* FeedView.swift in Sources */,
 				C0D1AF9329619EB000BFC4A9 /* ContentView.swift in Sources */,
 				C0D1AFA52961A34500BFC4A9 /* MapView.swift in Sources */,

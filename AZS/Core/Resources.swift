@@ -28,6 +28,11 @@ struct Res {
                 static let gasolinePrice = NSLocalizedString("gas_station_gasoline_price", comment: "")
             }
         }
+        struct tabBar {
+            static let map = NSLocalizedString("tabbar_map", comment: "")
+            static let news = NSLocalizedString("tabbar_news", comment: "")
+            static let profile = NSLocalizedString("tabbar_profile", comment: "")
+        }
     }
     struct fonts {
         static let regular10 = Font.system(size: 10, weight: .regular)

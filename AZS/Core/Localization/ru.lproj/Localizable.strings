@@ -14,3 +14,9 @@
 "gas_station_address" = "Адрес: ";
 "gas_station_phone_number" = "Телефон: ";
 "gas_station_gasoline_price" = "Стоимость топлива";
+
+
+// MARK: - TABBAR
+"tabbar_map" = "Карта";
+"tabbar_news" = "Новости";
+"tabbar_profile" = "Профиль";

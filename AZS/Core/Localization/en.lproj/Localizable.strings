@@ -14,3 +14,9 @@
 "gas_station_address" = "Address: ";
 "gas_station_phone_number" = "Phone: ";
 "gas_station_gasoline_price" = "Fuel cost";
+
+
+// MARK: - TABBAR
+"tabbar_map" = "Map";
+"tabbar_news" = "News";
+"tabbar_profile" = "Profile";

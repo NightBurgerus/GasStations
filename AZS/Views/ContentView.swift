@@ -13,23 +13,43 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @StateObject var controllers = Controllers()
+    @StateObject private var controllers = Controllers()
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         ZStack {
             TabView {
                 MapView().tag(0).tabItem {
-                    Text("1").foregroundColor(Color("appForeground"))
+                    Image(systemName: "map")
+                    Text(Res.strings.tabBar.map)
                 }.introspectTabBarController { tabBarController in
-                    DispatchQueue.main.async {
-                        controllers.tabBarController = tabBarController
-                        controllers.configureTabBar()
+                    if controllers.tabBarController == nil {
+                        DispatchQueue.main.async {
+                            controllers.tabBarController = tabBarController
+                            controllers.configureTabBar()
+                        }
                     }
                 }
                 FeedView().tag(1).tabItem {
-                    Text("2").foregroundColor(Color("appForeground"))
+                    Image(systemName: "newspaper")
+                    Text(Res.strings.tabBar.news)
                 }
-            }.environmentObject(controllers)
+                
+                ProfileWrapper().tag(2).tabItem {
+                    Image(systemName: "person")
+                    Text(Res.strings.tabBar.profile)
+                }
+            }
+            .environmentObject(controllers)
+            .accentColor(accentColor())
+        }
+    }
+    
+    private func accentColor() -> Color {
+        if colorScheme == .dark {
+            return Res.colors.white
+        } else {
+            return Res.colors.blue
         }
     }
 }
