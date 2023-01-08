@@ -27,10 +27,10 @@ extension UserDefaults {
     }
     // получение данных из хранилища
     func updateData(to profile: Profile) {
-        profile.password = value(forKey: "profile.password") as! String
-        profile.username = value(forKey: "profile.username") as! String
-        profile.accessToken = value(forKey: "profile.accessToken") as! String
-        profile.lastName = value(forKey: "profile.lastName") as! String
-        profile.firstName = value(forKey: "profile.firstName") as! String
+        profile.password = value(forKey: "profile.password") as? String ?? ""
+        profile.username = value(forKey: "profile.username") as? String ?? ""
+        profile.accessToken = value(forKey: "profile.accessToken") as? String ?? ""
+        profile.lastName = value(forKey: "profile.lastName") as? String ?? ""
+        profile.firstName = value(forKey: "profile.firstName") as? String ?? ""
     }
 }

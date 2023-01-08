@@ -60,3 +60,9 @@
 
 // MARK: - ERRORS
 "auth_error" = "Ошибка авторизации";
+
+// MARK: - FEED VIEW
+"feed_title" = "Новости";
+"feed_loading_error" = "Ошибка при загрузке новостей";
+
+"app_name" = "Автозаправочная сеть";

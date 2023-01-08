@@ -42,5 +42,9 @@ extension View {
             self
         }
     }
+    
+    @ViewBuilder func viewDidLoad(_ perform: @escaping () -> () ) -> some View {
+        self.background(UIKitWrapper(completion: perform))
+    }
 }
 

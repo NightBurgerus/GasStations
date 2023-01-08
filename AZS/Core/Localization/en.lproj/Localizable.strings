@@ -61,3 +61,9 @@
 // MARK: - ERRORS
 "auth_error" = "Authorization error";
 
+// MARK: - FEED VIEW
+"feed_title" = "News";
+"feed_loading_error" = "Error while loading news";
+
+
+"app_name" = "Gas Stations";

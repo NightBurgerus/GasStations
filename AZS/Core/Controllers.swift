@@ -5,7 +5,8 @@
 //  Created by Паша Терехов on 02.01.2023.
 //
 
-import SwiftUI
+import Foundation
+import UIKit
 
 // Вспомогательный класс для работы с контроллерами
 class Controllers: ObservableObject {
@@ -15,8 +16,29 @@ class Controllers: ObservableObject {
     func configureTabBar() {
         DispatchQueue.main.async {
             self.tabBarController?.tabBar.backgroundColor = UIColor(named: "appBackground")
+            self.setTabBarShadow()
         }
     }
+    
+    func setTabBarShadow() {
+        let image = UIImage.gradientImageWithBounds(
+            bounds: CGRect(x: 0, y: 0, width: UIScreen.main.scale, height: 20),
+            colors: [
+                UIColor.clear.cgColor,
+                UIColor.black.withAlphaComponent(0.08).cgColor
+            ]
+        )
+
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.white
+        appearance.shadowImage = image
+        tabBarController?.tabBar.standardAppearance = appearance
+        let frame = self.tabBarController!.view.frame
+        self.tabBarController!.view.frame = frame.insetBy(dx: 1, dy: 1)
+        self.tabBarController!.view.frame = frame
+    }
+    
     
     func hideTabBar(withoutAnimation: Bool = false) {
         guard let tabBar = tabBarController?.tabBar else {

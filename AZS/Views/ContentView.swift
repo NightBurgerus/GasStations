@@ -9,12 +9,12 @@ import SwiftUI
 
 // TODO:
 // - локация пользователя
-// - При смене локали уходит фон таббара
 
 
 struct ContentView: View {
     @StateObject private var controllers = Controllers()
     @StateObject private var profile     = Profile()
+    @State private var showStartScreen = true
     @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
@@ -44,9 +44,19 @@ struct ContentView: View {
             .environmentObject(controllers)
             .environmentObject(profile)
             .accentColor(accentColor())
+            
+            if showStartScreen {
+                StartView().ignoresSafeArea()
+            }
         }
         .onAppear {
             configureView()
+        }
+        .viewDidLoad {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.showStartScreen = false
+            }
+
         }
     }
     

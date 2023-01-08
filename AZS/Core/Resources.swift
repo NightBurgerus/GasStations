@@ -17,6 +17,7 @@ struct Res {
         static let black     = Color("black")
     }
     struct strings {
+        static let appName = NSLocalizedString("app_name", comment: "")
         struct map {
             static let warning = NSLocalizedString("user_location_warning", comment: "")
             static let goToSettings = NSLocalizedString("user_go_to_settings", comment: "")
@@ -60,6 +61,10 @@ struct Res {
             static let exitSheet   = NSLocalizedString("profile_exit_sheet", comment: "")
             static let yes         = NSLocalizedString("profile_confirm", comment: "")
             static let no          = NSLocalizedString("profile_dismiss", comment: "")
+        }
+        struct feed {
+            static let title = NSLocalizedString("feed_title", comment: "")
+            static let loadingError = NSLocalizedString("feed_loading_error", comment: "")
         }
         struct toast {
             static let emptyFields = NSLocalizedString("toast_empty_fields", comment: "")

@@ -20,6 +20,11 @@ struct Links {
         static let login = base + authorizationBase + "/login/"
         static let register = base + authorizationBase + "register/"
     }
+    struct Feed {
+        private static let feedBase = "/feed"
+        static let news = base + feedBase + "/news"
+        static let detail = news + "/"
+    }
 }
 
 

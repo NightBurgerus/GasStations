@@ -11,11 +11,13 @@ struct ProfileWrapper: View {
     @EnvironmentObject private var profile: Profile
     
     var body: some View {
-        NavigationView {
-            if !profile.isSignedIn {
-                AuthView()
-            } else {
-                ProfileView()
+        CustomNavigationStack {
+            ZStack {
+                if !profile.isSignedIn {
+                    AuthView()
+                } else {
+                    ProfileView()
+                }
             }
         }
     }
