@@ -20,3 +20,43 @@
 "tabbar_map" = "Карта";
 "tabbar_news" = "Новости";
 "tabbar_profile" = "Профиль";
+
+// MARK: - AUTH/REGISTER VIEW
+"login_label" = "Авторизация";
+"register_label" = "Регистрация";
+"login_placeholder" = "Логин";
+"password_placeholder" = "Пароль";
+"repeat_password_placeholder" = "Повторите пароль";
+"email_placeholder" = "Электронная почта";
+"first_name_placeholder" = "Имя";
+"last_name_placeholder" = "Фамилия";
+"log_in_button" = "Войти";
+"register_button" = "Зарегистрироваться";
+
+// MARK: - PROFILE VIEW
+"profile_username"   = "Логин";
+"profile_first_name" = "Имя";
+"profile_last_name"  = "Фамилия";
+"profile_edit"       = "Изменить";
+"profile_exit"       = "Выход";
+"profile_delete"     = "Удалить";
+"profile_exit_sheet" = "Выйти из профиля?";
+"profile_del_sheet"  = "Удалить профиль?";
+"profile_confirm"    = "Да";
+"profile_dismiss"    = "Нет";
+
+
+// MARK: - TOASTS
+"toast_empty_fields" = "Одно или несколько полей не заполнены";
+"toast_incorrect_email" = "Некорректный формат электронной почты";
+"toast_password_length" = "Пароль должен содержать минимум 6 символов";
+"toast_passwords_dont_match" = "Пароли не совпадают";
+
+"toast_deleting_error" = "Ошибка удаления аккаунта";
+"toast_deleting_completed" = "Аккаунт удалён успешно";
+"toast_exit_error" = "Ошибка выхода из аккаунта";
+"toast_exit_completed" = "Вы вышли из профиля";
+
+
+// MARK: - ERRORS
+"auth_error" = "Ошибка авторизации";

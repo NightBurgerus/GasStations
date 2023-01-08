@@ -20,3 +20,44 @@
 "tabbar_map" = "Map";
 "tabbar_news" = "News";
 "tabbar_profile" = "Profile";
+
+// MARK: - AUTH/REGISTER VIEW
+"login_label" = "Authorization";
+"register_label" = "Registration";
+"login_placeholder" = "Login";
+"password_placeholder" = "Password";
+"repeat_password_placeholder" = "Repeat password";
+"email_placeholder" = "Email";
+"first_name_placeholder" = "First name";
+"last_name_placeholder" = "Last name";
+"log_in_button" = "Log in";
+"register_button" = "Registration";
+
+
+// MARK: - PROFILE VIEW
+"profile_username"   = "Username";
+"profile_first_name" = "First name";
+"profile_last_name"  = "Last name";
+"profile_edit"       = "Edit";
+"profile_exit"       = "Exit";
+"profile_delete"     = "Delete";
+"profile_exit_sheet" = "Do you want to exit?";
+"profile_del_sheet"  = "Do you want to delete your account?";
+"profile_confirm"    = "Yes";
+"profile_dismiss"    = "No";
+
+// MARK: - TOASTS
+"toast_empty_fields" = "One or more fields are empty";
+"toast_incorrect_email" = "Incorrect email format";
+"toast_password_length" = "Password must contains 6 characters or more";
+"toast_passwords_dont_match" = "Passwords don't match";
+
+
+"toast_deleting_error" = "Error while deleting account";
+"toast_deleting_completed" = "Account has deleted successfully";
+"toast_exit_error" = "Error while exit from account";
+"toast_exit_completed" = "You has exit from account";
+
+// MARK: - ERRORS
+"auth_error" = "Authorization error";
+

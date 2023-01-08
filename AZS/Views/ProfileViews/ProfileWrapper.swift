@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ProfileWrapper: View {
+    @EnvironmentObject private var profile: Profile
+    
     var body: some View {
-        VStack {
-            Text("Profile wrapper")
+        NavigationView {
+            if !profile.isSignedIn {
+                AuthView()
+            } else {
+                ProfileView()
+            }
         }
     }
 }

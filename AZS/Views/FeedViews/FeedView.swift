@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct FeedView: View {
+    @State var showLoadingScreen = true
     var body: some View {
         ZStack {
-            GasStationView()
+            if showLoadingScreen {
+                LoadingScreen()
+            }
+        }.onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                showLoadingScreen = false
+            }
         }
     }
 }

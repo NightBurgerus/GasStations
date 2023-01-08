@@ -13,7 +13,7 @@ struct CustomViewControllerInspector: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> CustomViewController {
         let controller = CustomViewController()
-        DispatchQueue.global().async {
+        DispatchQueue.main.async {
             completion(controller.introspectTabBarController())
         }
         return controller
@@ -37,6 +37,6 @@ class CustomViewController: UIViewController {
     }
     
     func introspectTabBarController() -> UITabBarController? {
-        return self.tabBarController
+        return tabBarController
     }
 }

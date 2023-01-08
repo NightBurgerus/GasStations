@@ -73,6 +73,9 @@ struct MapView: View {
         
         // 56.119708, 40.364791
         // 56.119736, 40.364773
+        if !gasStations.isEmpty {
+            return
+        }
         let price = ["АИ-92": 45.0, "АИ-95": 50.0, "АИ-95 евро": 51.0, "Дизель": 55.0, "Дизель евро": 60.5]
         var point = GasStation(id: 1, address: "Улица Пушкина, дом Колотушкина", latitude: 56.119736, longitude: 40.364773, phone: "+7 (905) 616-3669", gasoline: Gasoline(price: price))
         gasStations.append(point)

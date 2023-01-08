@@ -14,6 +14,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var controllers = Controllers()
+    @StateObject private var profile     = Profile()
     @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
@@ -37,12 +38,20 @@ struct ContentView: View {
                 
                 ProfileWrapper().tag(2).tabItem {
                     Image(systemName: "person")
-                    Text(Res.strings.tabBar.profile)
+                    Text(profileTabBarText)
                 }
             }
             .environmentObject(controllers)
+            .environmentObject(profile)
             .accentColor(accentColor())
         }
+        .onAppear {
+            configureView()
+        }
+    }
+    
+    private func configureView() {
+        UserDefaults.standard.updateData(to: profile)
     }
     
     private func accentColor() -> Color {
@@ -51,6 +60,13 @@ struct ContentView: View {
         } else {
             return Res.colors.blue
         }
+    }
+    
+    private var profileTabBarText: String {
+        if profile.isSignedIn {
+            return String((profile.firstName + " " + profile.lastName).prefix(10))
+        }
+        return Res.strings.tabBar.profile
     }
 }
 
