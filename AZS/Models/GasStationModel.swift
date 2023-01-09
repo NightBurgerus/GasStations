@@ -8,6 +8,11 @@
 import Foundation
 import MapKit
 
+struct GasStationResponse: ResponseProtocol, Codable {
+    var response: Bool
+    var data: [GasStation]
+}
+
 struct GasStation: Identifiable, Codable {
     let id: Int
     let address: String

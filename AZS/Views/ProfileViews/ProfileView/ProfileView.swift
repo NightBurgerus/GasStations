@@ -16,6 +16,7 @@ struct ProfileView: View {
     @State private var profileVM = ProfileViewModel()
     @State private var showsToast = false
     @State private var toastMessage = ""
+    @State private var action: Int? = nil
     
     var body: some View {
         ZStack {
@@ -43,21 +44,47 @@ struct ProfileView: View {
             if profileVM.dataIsLoading {
                 LoadingScreen()
             }
-        }.actionSheet(isPresented: $showsActionSheet) {
+            
+            NavigationLink(destination: SettingsView(), tag: 1, selection: $action) {}
+        }
+        .actionSheet(isPresented: $showsActionSheet) {
             actionSheet
+        }
+        .onAppear {
+            configureView()
         }
     }
     
-    
-    
+    private func configureView() {
+        action = nil
+    }
     
     private func UserInfo() -> some View {
         HStack {
             UserIcon()
             UsernameInfo().padding(.leading, 10)
+            SettingsButton()
             Spacer()
         }
     }
+    
+    private func SettingsButton() -> some View {
+        VStack {
+            Group {
+                if colorScheme == .dark {
+                    Res.images.settingsWhite
+                } else {
+                    Res.images.settingsBlack
+                }
+            }
+            .frame(width: 50, height: 50)
+            .contentShape(Rectangle())
+            .onTapGesture {
+                action = 1
+            }
+        }
+    }
+    
     private func UserIcon() -> some View {
         ZStack {
             Circle().fill(Color.blue).frame(width: 150, height: 150)
@@ -122,7 +149,10 @@ struct ProfileView: View {
     
     private func ExitButton(_ completion: @escaping() -> ()) -> some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 5).fill(colorScheme == .dark ? Res.colors.darkGray : Res.colors.lightGray).frame(height: 40).padding(.horizontal, 10)
+            RoundedRectangle(cornerRadius: 5)
+                .fill(colorScheme == .dark ? Res.colors.darkGray : Res.colors.lightGray)
+                .frame(height: 40)
+                .padding(.horizontal, 10)
             BoldText(Res.strings.profile.exit, fontSize: .s16).foregroundColor(.red)
         }
         .contentShape(Rectangle())

@@ -21,6 +21,7 @@ class NetworkApi {
         
         URLSession.shared.dataTask(with: request) { jsonData, response, error in
             guard error == nil else {
+                print("~ error: ", error!.localizedDescription)
                 DispatchQueue.main.async {
                     completion(.failture(.Error))
                 }
@@ -29,6 +30,7 @@ class NetworkApi {
             
             let statusCode = (response as! HTTPURLResponse).statusCode
             guard 200...299 ~= statusCode else {
+                print("~ status code: ", statusCode)
                 DispatchQueue.main.async {
                     completion(.failture(.InvalidStatusCode))
                 }
@@ -36,6 +38,7 @@ class NetworkApi {
             }
             
             if let data = jsonData {
+                print("~ data: ", data)
                 DispatchQueue.main.async {
                     completion(.success(data))
                 }

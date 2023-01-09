@@ -21,6 +21,8 @@ struct UserTextField: View {
             return .asciiCapable
         case .email:
             return .emailAddress
+        case .digits:
+            return .decimalPad
         }
     }
 //    @State private var error = false
@@ -113,5 +115,6 @@ extension UserTextField {
         case email
         case password
         case name
+        case digits
     }
 }

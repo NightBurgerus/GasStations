@@ -11,11 +11,15 @@ import MapKit
 struct MapView: View {
     @EnvironmentObject private var controllers: Controllers
     @Environment(\.colorScheme) private var colorScheme
+    @StateObject private var mapVM = MapViewModel()
     @State private var region = MKCoordinateRegion()
     @State private var gasStations = [GasStation]()
     @State private var showsUserLocationWarning = false
+    @State private var selectedStations: GasStation!
     @State private var showsMap = false
     @State private var showDetails = false
+    @State private var showToast = false
+    @State private var toastMessage = ""
     
     var body: some View {
         ZStack {
@@ -24,6 +28,7 @@ struct MapView: View {
                     MapAnnotation(coordinate: gasStation.coordinate) {
                         GasStationView()
                             .onTapGesture {
+                                selectedStations = gasStation
                                 if controllers.tabBarController?.tabBar.isHidden ?? false {
                                     controllers.setTabBar()
                                 } else {
@@ -47,7 +52,18 @@ struct MapView: View {
             }
             
             if showDetails {
-                GasStationDetails(isShowing: $showDetails, gasStation: gasStations.first!)
+                GasStationDetails(isShowing: $showDetails, gasStation: selectedStations)
+            }
+            
+            if showToast {
+                VStack {
+                    Spacer()
+                    Toast(isShowing: $showToast, text: toastMessage)
+                }
+            }
+            
+            if mapVM.dataIsLoading {
+                LoadingScreen()
             }
         }
         .onAppear {
@@ -70,20 +86,36 @@ struct MapView: View {
     private func configureView() {
         configureLocation()
         showsMap = true
-        
-        // 56.119708, 40.364791
-        // 56.119736, 40.364773
+
         if !gasStations.isEmpty {
             return
         }
+        
+        mapVM.getStations { response in
+            switch response {
+            case .failture(_):
+                toastMessage = Res.strings.errors.error
+                withAnimation {
+                    showToast = true
+                }
+            case .success(let data):
+                guard let info = (data as? GasStationResponse)?.data, data!.response else {
+                    toastMessage = Res.strings.errors.error
+                    withAnimation {
+                        showToast = true
+                    }
+                    return
+                }
+                self.gasStations = info
+            }
+        }
         let price = ["АИ-92": 45.0, "АИ-95": 50.0, "АИ-95 евро": 51.0, "Дизель": 55.0, "Дизель евро": 60.5]
-        var point = GasStation(id: 1, address: "Улица Пушкина, дом Колотушкина", latitude: 56.119736, longitude: 40.364773, phone: "+7 (905) 616-3669", gasoline: Gasoline(price: price))
+        let point = GasStation(id: 1, address: "Улица Пушкина, дом Колотушкина", latitude: 56.119736, longitude: 40.364773, phone: "+7 (905) 616-3669", gasoline: Gasoline(price: price))
         gasStations.append(point)
     }
     
     private func configureLocation() {
-        
-        let defaultRegionCenter = CLLocationCoordinate2D(latitude: 56.127459, longitude: 40.397060)
+        let defaultRegionCenter = CLLocationCoordinate2D(latitude: 55.751739, longitude: 37.618828)
         let defaultRegionSpan   = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let defaultRegion = MKCoordinateRegion(center: defaultRegionCenter, span: defaultRegionSpan)
         region = defaultRegion

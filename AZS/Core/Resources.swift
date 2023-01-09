@@ -79,6 +79,7 @@ struct Res {
         }
         struct errors {
             static let authError = NSLocalizedString("auth_error", comment: "")
+            static let error     = NSLocalizedString("unknown_error", comment: "")
         }
     }
     struct fonts {
@@ -96,5 +97,7 @@ struct Res {
     struct images {
         static let gasPistolWhite = ColoredImage(image: Image("gas_pistol"), color: Color.white)
         static let gasPistolBlack  = ColoredImage(image: Image("gas_pistol"), color: Color.black)
+        static let settingsWhite = ColoredImage(image: Image("settings"), color: Color.white)
+        static let settingsBlack = ColoredImage(image: Image("settings"), color: Color.black)
     }
 }

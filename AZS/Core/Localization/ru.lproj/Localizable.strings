@@ -60,6 +60,7 @@
 
 // MARK: - ERRORS
 "auth_error" = "Ошибка авторизации";
+"unknown_error"  = "Неизвестная ошибка";
 
 // MARK: - FEED VIEW
 "feed_title" = "Новости";

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C06E27AC296CACD000C6BB39 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06E27AB296CACD000C6BB39 /* Settings.swift */; };
+		C06E27AE296CB7A200C6BB39 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06E27AD296CB7A200C6BB39 /* MapViewModel.swift */; };
 		C09B860729659FF9001CFEC1 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B860629659FF9001CFEC1 /* Text.swift */; };
 		C09B86092965A622001CFEC1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B86082965A622001CFEC1 /* CustomButton.swift */; };
 		C09B860B2965A9D1001CFEC1 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B860A2965A9D1001CFEC1 /* UIApplicationExtension.swift */; };
@@ -46,7 +48,7 @@
 		C0D1AFD8296449BE00BFC4A9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1AFD7296449BE00BFC4A9 /* Profile.swift */; };
 		C0D1AFDB29644B0A00BFC4A9 /* ResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1AFDA29644B0A00BFC4A9 /* ResponseResult.swift */; };
 		C0D1AFDD29644CD900BFC4A9 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1AFDC29644CD900BFC4A9 /* Links.swift */; };
-		C0D1AFDF2964502000BFC4A9 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1AFDE2964502000BFC4A9 /* Requests.swift */; };
+		C0D1AFDF2964502000BFC4A9 /* NetworkApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1AFDE2964502000BFC4A9 /* NetworkApi.swift */; };
 		C0D1AFE3296453D000BFC4A9 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1AFE2296453D000BFC4A9 /* ProfileViewModel.swift */; };
 		C0D1AFE52964548400BFC4A9 /* ResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1AFE42964548400BFC4A9 /* ResponseProtocol.swift */; };
 		C0D1AFE9296460C600BFC4A9 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1AFE8296460C600BFC4A9 /* AuthView.swift */; };
@@ -56,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C06E27AB296CACD000C6BB39 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C06E27AD296CB7A200C6BB39 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		C09B860629659FF9001CFEC1 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		C09B86082965A622001CFEC1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		C09B860A2965A9D1001CFEC1 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
@@ -98,7 +102,7 @@
 		C0D1AFD7296449BE00BFC4A9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		C0D1AFDA29644B0A00BFC4A9 /* ResponseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseResult.swift; sourceTree = "<group>"; };
 		C0D1AFDC29644CD900BFC4A9 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
-		C0D1AFDE2964502000BFC4A9 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		C0D1AFDE2964502000BFC4A9 /* NetworkApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkApi.swift; sourceTree = "<group>"; };
 		C0D1AFE2296453D000BFC4A9 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		C0D1AFE42964548400BFC4A9 /* ResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseProtocol.swift; sourceTree = "<group>"; };
 		C0D1AFE8296460C600BFC4A9 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 			children = (
 				C0D1AFE0296453B100BFC4A9 /* Profile, Auth */,
 				C09B8620296B535D001CFEC1 /* FeedViewModel.swift */,
+				C06E27AD296CB7A200C6BB39 /* MapViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -276,7 +281,7 @@
 			children = (
 				C0D1AFDA29644B0A00BFC4A9 /* ResponseResult.swift */,
 				C0D1AFDC29644CD900BFC4A9 /* Links.swift */,
-				C0D1AFDE2964502000BFC4A9 /* Requests.swift */,
+				C0D1AFDE2964502000BFC4A9 /* NetworkApi.swift */,
 				C0D1AFE42964548400BFC4A9 /* ResponseProtocol.swift */,
 			);
 			path = Net;
@@ -295,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				C09B8616296AD3F5001CFEC1 /* ProfileView.swift */,
+				C06E27AB296CACD000C6BB39 /* Settings.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -400,12 +406,13 @@
 				C0D1AFD8296449BE00BFC4A9 /* Profile.swift in Sources */,
 				C0D1AFAD2961A93600BFC4A9 /* Resources.swift in Sources */,
 				C0D1AFCB2961D0C900BFC4A9 /* Triangle.swift in Sources */,
-				C0D1AFDF2964502000BFC4A9 /* Requests.swift in Sources */,
+				C0D1AFDF2964502000BFC4A9 /* NetworkApi.swift in Sources */,
 				C0D1AFEB2964610200BFC4A9 /* LoadingScreen.swift in Sources */,
 				C0D1AFC52961C2C900BFC4A9 /* GasolineAnnotationView.swift in Sources */,
 				C0D1AFE3296453D000BFC4A9 /* ProfileViewModel.swift in Sources */,
 				C09B860F2965AFC9001CFEC1 /* RegisterView.swift in Sources */,
 				C09B861D296B5107001CFEC1 /* UIImageExtension.swift in Sources */,
+				C06E27AE296CB7A200C6BB39 /* MapViewModel.swift in Sources */,
 				C0D1AFDD29644CD900BFC4A9 /* Links.swift in Sources */,
 				C09B860D2965AC0C001CFEC1 /* Toast.swift in Sources */,
 				C09B8619296AE2AC001CFEC1 /* BaseResponse.swift in Sources */,
@@ -422,6 +429,7 @@
 				C09B861329685682001CFEC1 /* StringExtension.swift in Sources */,
 				C0D1AFD02962EECD00BFC4A9 /* Tooltip.swift in Sources */,
 				C09B861F296B524E001CFEC1 /* FeedModels.swift in Sources */,
+				C06E27AC296CACD000C6BB39 /* Settings.swift in Sources */,
 				C09B8621296B535D001CFEC1 /* FeedViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

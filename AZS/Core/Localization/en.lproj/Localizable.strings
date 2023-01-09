@@ -60,6 +60,7 @@
 
 // MARK: - ERRORS
 "auth_error" = "Authorization error";
+"unknown_error"  = "Unknown error";
 
 // MARK: - FEED VIEW
 "feed_title" = "News";

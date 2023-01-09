@@ -8,7 +8,11 @@
 import Foundation
 
 struct Links {
-    private static let base = "HOSTNAME"
+    static var base = "http://192.168.0.103:9000"
+    struct Map {
+        private static let mapBase = "/map"
+        static let points = base + mapBase + "/points"
+    }
     struct Profile {
         private static let profileBase = "/profile"
         static let getProfile = base + profileBase + "/getProfile/"
