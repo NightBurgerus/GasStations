@@ -55,7 +55,7 @@ class FeedViewModel: ObservableObject {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            var detailInfo = DetailInfoData(label: "Новость №\(id)", text: "Вчера кто-то спиздил с заправки сникерс", image: nil)
+            var detailInfo = DetailInfoData(label: "Новость №\(id)", text: "У нас расширение!", image: nil)
             var response = DetailInfoResposne(response: true, data: detailInfo)
             completionHandler(.success(response))
             self.dataIsLoading = false

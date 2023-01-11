@@ -9,25 +9,34 @@ import SwiftUI
 
 struct CustomViewControllerInspector: UIViewControllerRepresentable {
     typealias UIViewControllerType = CustomViewController
-    var completion: (UITabBarController?) -> () = { _ in }
+    var introspect: IntrospectType
+    var tabBarHandler: (UITabBarController?) -> () = { _ in }
+    var navigationBarHandler: (UINavigationController?) -> () = { _ in }
     
     func makeUIViewController(context: Context) -> CustomViewController {
         let controller = CustomViewController()
-        DispatchQueue.main.async {
-            completion(controller.introspectTabBarController())
+        switch introspect {
+        case .UITabBarController:
+            DispatchQueue.main.async {
+                tabBarHandler(controller.introspectTabBarController())
+            }
+        case .UINavigationController:
+            DispatchQueue.main.async {
+                navigationBarHandler(controller.introspectNavigationController())
+            }
         }
         return controller
     }
     
     func updateUIViewController(_ uiViewController: CustomViewController, context: Context) {
     }
-    
-//    func introspectTabBarController(_ customize: @escaping(UITabBarController?) -> ()) -> some View {
-//        DispatchQueue.global().asyncAfter(deadline: .now() + 5) {
-//            print("~ self.vc: ", vc)
-//        }
-//        return self
-//    }
+}
+
+extension CustomViewControllerInspector {
+    enum IntrospectType {
+        case UITabBarController
+        case UINavigationController
+    }
 }
 
 class CustomViewController: UIViewController {
@@ -38,5 +47,9 @@ class CustomViewController: UIViewController {
     
     func introspectTabBarController() -> UITabBarController? {
         return tabBarController
+    }
+    
+    func introspectNavigationController() -> UINavigationController? {
+        return navigationController
     }
 }

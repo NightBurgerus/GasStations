@@ -13,7 +13,7 @@ struct ProfileView: View {
     @Environment(\.colorScheme) private var colorScheme
     @State private var showsActionSheet = false
     @State private var actionSheet: ActionSheet!
-    @State private var profileVM = ProfileViewModel()
+    @StateObject private var profileVM = ProfileViewModel()
     @State private var showsToast = false
     @State private var toastMessage = ""
     @State private var action: Int? = nil
@@ -47,6 +47,12 @@ struct ProfileView: View {
             
             NavigationLink(destination: SettingsView(), tag: 1, selection: $action) {}
         }
+        .introspectNavigationController({ navigationController in
+            guard let nc = navigationController else {
+                return
+            }
+            nc.navigationBar.isHidden = true
+        })
         .actionSheet(isPresented: $showsActionSheet) {
             actionSheet
         }

@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailNewsView: View {
     var id: Int
     @EnvironmentObject private var controllers: Controllers
-    @State private var feedVM = FeedViewModel()
+    @StateObject private var feedVM = FeedViewModel()
     @State private var showsToast = false
     @State private var toastMessage = ""
     @State private var data: DetailInfoData? = nil

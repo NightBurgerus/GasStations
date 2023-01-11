@@ -23,12 +23,6 @@ extension View {
         }
     }
     
-    @ViewBuilder func introspectTabBarController(_ customize: @escaping(UITabBarController?) -> ()) -> some View {
-        self.background(CustomViewControllerInspector() { tabBarController in
-            customize(tabBarController)
-        })
-    }
-    
     @ViewBuilder func optionalFrame(width: CGFloat? = nil, height: CGFloat? = nil) -> some View {
         if width != nil || height != nil {
             if width != nil && height == nil {
@@ -45,6 +39,22 @@ extension View {
     
     @ViewBuilder func viewDidLoad(_ perform: @escaping () -> () ) -> some View {
         self.background(UIKitWrapper(completion: perform))
+    }
+}
+
+
+// INTROSPECTION
+extension View {
+    @ViewBuilder func introspectTabBarController(_ customize: @escaping(UITabBarController?) -> ()) -> some View {
+        self.background(CustomViewControllerInspector(introspect: .UITabBarController, tabBarHandler: { tabBarController in
+            customize(tabBarController)
+        }))
+    }
+    
+    @ViewBuilder func introspectNavigationController(_ customize: @escaping(UINavigationController?) -> ()) -> some View {
+        self.background(CustomViewControllerInspector(introspect: .UINavigationController, navigationBarHandler:  { navigationController in
+            customize(navigationController)
+        }))
     }
 }
 

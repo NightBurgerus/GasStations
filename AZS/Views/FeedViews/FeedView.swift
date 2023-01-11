@@ -52,6 +52,12 @@ struct FeedView: View {
                 NavigationLink(destination: DetailNewsView(id: selectedNewsId), tag: 1, selection: $action) {}
                 
             }
+            .introspectNavigationController({ navigationController in
+                guard let nc = navigationController else {
+                    return
+                }
+                nc.navigationBar.isHidden = true
+            })
             .onAppear {
                 configureView()
             }

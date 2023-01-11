@@ -8,7 +8,7 @@
 import Foundation
 
 struct Links {
-    static var base = "http://192.168.0.103:9000"
+    static var base = "http://172.20.10.2:9000"
     struct Map {
         private static let mapBase = "/map"
         static let points = base + mapBase + "/points"
