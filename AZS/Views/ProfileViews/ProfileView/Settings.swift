@@ -22,6 +22,19 @@ struct SettingsView: View {
             CloseButton()
             Spacer()
         }
+        .onAppear {
+            configureView()
+        }
+    }
+    
+    private func configureView() {
+        var _ip = Links.base
+        while Int(String(_ip.prefix(1))) == nil {
+            _ip.removeFirst()
+        }
+        let baseParts = _ip.split(separator: ":")
+        ip = String(baseParts[0])
+        port = String(baseParts[1])
     }
     
     private func Label() -> some View {
@@ -38,13 +51,21 @@ struct SettingsView: View {
                 Spacer()
             }
             UserTextField(title: label, text: text, textFieldType: .digits)
+                .onChange(of: text.wrappedValue) { newValue in
+                    if !newValue.contains(",") {
+                        return
+                    }
+                    
+                    text.wrappedValue = text.wrappedValue.replacingOccurrences(of: ",", with: ".")
+                }
         }.padding([.top, .horizontal], 20)
     }
     
     private func SaveButton() -> some View {
         CustomButton(label: "Save") {
-            Links.base = ip.replacingOccurrences(of: ",", with: ".") + ":" + port
+            Links.base = "http://" + ip.replacingOccurrences(of: ",", with: ".") + ":" + port
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                print("~ links base: ", Links.base)
                 presentationMode.wrappedValue.dismiss()
             }
         }.padding(.top, 10)
